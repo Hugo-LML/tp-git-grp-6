@@ -1,21 +1,22 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+name: Auto Assign to Project
+
+on:
+  issues:
+    types: [opened, labeled]
+env:
+  MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+
 jobs:
-  Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
+  assign_one_project:
+    runs-on: windows-latest
+    name: Assign to One Project
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Assign to One Project
-        uses: srggrs/assign-one-project-github-action@1.3.1
-        if: github.event.action == 'opened'
-        with:
-          project: 'https://github.com/Hugo-LML/tp-git-grp-6.git'
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+    - name: Assign issues with `Bug`, 'New', 'Improve' label to project 
+      uses: srggrs/assign-one-project-github-action@1.3.1
+      if: |
+        contains(github.event.issue.labels.*.name, 'New') ||
+        contains(github.event.issue.labels.*.name, 'Improve') ||
+        contains(github.event.issue.labels.*.name, 'Bug') 
+      with:
+        project: 'https://github.com/Hugo-LML/tp-git-grp-6.git'
+        column_name: 'To do'
