@@ -1,6 +1,6 @@
 name: Auto Assign to Project
 
-on:
+on: [push]
   issues:
     types: [opened, labeled]
 env:
