@@ -6,12 +6,12 @@ on:
 
 jobs:
   automate-project-columns:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: alex-page/github-project-automation-plus@v0.8.1
-      with:
-        project: tp-git-grp-6-project
-        column: To Do
-        repo-token: ${{ secrets.MY_GITHUB_TOKEN }}
-
+        with:
+          project: tp-git-grp-6-project
+          column: To Do
+          repo-token: ${{ secrets.MY_GITHUB_TOKEN }}
+          
 # Doc GitHub Action : https://github.com/alex-page/github-project-automation-plus
