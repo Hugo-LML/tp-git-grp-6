@@ -1,22 +1,17 @@
-name: Auto Assign to Project
+name: Move new issues into Project
 
 on:
   issues:
-    types: [opened, labeled]
-env:
-  MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+    types: [opened]
 
 jobs:
-  assign_one_project:
-    runs-on: windows-latest
-    name: Assign to One Project
+  automate-project-columns:
+    run-on: ubuntu-latest
     steps:
-    - name: Assign issues with `Bug`, 'New', 'Improve' label to project 
-      uses: srggrs/assign-one-project-github-action@1.3.1
-      if: |
-        contains(github.event.issue.labels.*.name, 'New') ||
-        contains(github.event.issue.labels.*.name, 'Improve') ||
-        contains(github.event.issue.labels.*.name, 'Bug') 
+      - uses: alex-page/github-project-automation-plus@v0.8.1
       with:
-        project: 'https://github.com/users/Hugo-LML/projects/3'
-        column_name: 'To do'
+        project: tp-git-grp-6-project
+        column: To Do
+        repo-token: ${{ secrets.MY_GITHUB_TOKEN }}
+
+# Doc GitHub Action : https://github.com/alex-page/github-project-automation-plus
