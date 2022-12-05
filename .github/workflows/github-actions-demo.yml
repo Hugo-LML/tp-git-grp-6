@@ -1,6 +1,6 @@
 name: Auto Assign to Project
 
-on: [push]
+on:
   issues:
     types: [opened, labeled]
 env:
@@ -18,5 +18,5 @@ jobs:
         contains(github.event.issue.labels.*.name, 'Improve') ||
         contains(github.event.issue.labels.*.name, 'Bug') 
       with:
-        project: 'https://github.com/Hugo-LML/tp-git-grp-6.git'
+        project: 'https://github.com/users/Hugo-LML/projects/3'
         column_name: 'To do'
