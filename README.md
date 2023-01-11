@@ -26,6 +26,6 @@
 
 
 ## Authors
-- [Hugo LEMERLE](https://github.com/Hugo-LML)
-- [Gauthier SIRCHIA](https://github.com/GootPyke)
-- [Inès MAGANGA](https://github.com/DeevaWitch)
+- [@Hugo LEMERLE](https://github.com/Hugo-LML)
+- [@Gauthier SIRCHIA](https://github.com/GootPyke)
+- [@Inès MAGANGA](https://github.com/DeevaWitch)
