@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: hugolml/git-repo-sync@v0.1.0
+    - uses: wangchucheng/git-repo-sync@v0.1.0
       with:
         target-url: https://gitlab.com/Hugo-LML/tp-git-grp-6
         target-username: Hugo-LML
