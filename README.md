@@ -1,2 +1,2 @@
 # tp-git-grp-6
-test 8
+test validated
