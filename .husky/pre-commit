@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo 'Le commit a été lancé'
+echo 'The commit has started, please wait before pushing'
 npx --no-install lint-staged
+echo 'The commit has ended, you can now push'
